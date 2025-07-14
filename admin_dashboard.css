@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* === MAIN CONTAINER === */
+.AdminMainContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* === LEFT CONTAINER === */
+.leftContainer {
+    width: 18%;
+    height: 100vh; /* full height based on screen */
+    box-shadow: 0px 0px 0px 1px black;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    background-color: maroon; /* prevent transparency under fixed */
+}
+
+
+.leftContainerHeader {
+    width: 100%;
+    height: 70px;
+}
+
+.logoHeader {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.logoHeader h2 {
+    padding-left: 10px;
+    font-size: 1rem;
+}
+
+.leftContainerBox {
+    width: 100%;
+    flex-grow: 1;
+}
+
+.admin_header {
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 0px 0px 1px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin_header button {
+    width: 90%;
+    max-width: 220px;
+    height: 35px;
+    border-radius: 12px;
+    border: none;
+}
+
+.admin_settings {
+    margin-left: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    width: 17%;
+    min-width: 200px;
+    max-width: 300px;
+    height: 200px;
+    box-shadow: 0px 0px 0px 1px black;
+    position: fixed;
+    display: none;
+}
+
+.admin_monitoring {
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+}
+
+.header_monitoring {
+    font-size: 1rem;
+    padding-left: 10px;
+}
+
+.header_monitoring span {
+    font-weight: 700;
+}
+
+.admin_monitoringBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin_monitoringBox ul {
+    margin-left: 5px;
+}
+
+.admin_monitoringBox  li {
+    list-style: none;
+    padding: 5px 0;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.adminLink {
+    width: 95%;
+    height: 30px;
+    box-shadow: 0px 0px 2px 1px black;
+    display: flex;
+    align-items: center;
+    margin: 10px auto 0 auto;
+    border-radius: 10px;
+}
+
+.adminLink a {
+    padding-left: 10px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: white;
+}
+
+.adminLink i {
+    padding-left: 10px;
+    color: rgba(255, 255, 255, 0.561);
+}
+
+/*rightContainer*/
+.rightContainer {
+    width: 82%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* === RIGHT HEADER === */
+.rightHeader {
+    min-width: 82%;
+    max-width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: white; /* prevent transparency under fixed */
+    z-index: 1000;
+    box-shadow: 0px 0px 1px 1px black;
+
+}
+
+.rightHeader i {
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    margin-right: 50px;
+    position: relative;
+}
+
+/* === MODAL === */
+.notifModal {
+    position: absolute;
+    top: 40px; /* directly below header */
+    right: 50px; /* aligned with bell icon */
+    width: 280px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* hidden by default */
+    z-index: 1001;
+    overflow: auto;
+}
+.notifModal ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.notifModal li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.rightContainerBox {
+    width: 100%;
+    height: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+/* user admin container */
+.userContainerBox {
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+.userHeaderContainer {
+    width: 100%;
+    height: 55px;
+    margin-top: 40px;
+    position: relative; /* important for positioning child absolutely */
+}
+
+.userHeaderContainer h2 {
+    font-size: 1rem;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.userHeaderContainer span {
+    padding-left: 10px;
+}
+
+.userBtn {
+    position: absolute;
+    right: 10px; /* push to far right */
+    top: 50%; /* center vertically */
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.userBtn button {
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #941010fa, #840202); /* blue gradient */
+    color: white;
+    border: none;
+    border-radius: 17px;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 120px;
+    height: 35px;
+}
+
+.addUserModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* semi-transparent background */
+    display: none; /* hidden initially */
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Modal Content Box */
+.add-user-form {
+    width: 400px;
+    height: 450px;
+    background-color: #fff;
+    border: #840202;
+    box-shadow: 0px 0px 10px 2px rgba(110, 1, 1, 0.802);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.add-user-form  h2 {
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.form-container {
+    margin-top: 5px;
+    width: 100%;
+    height: 95%;
+}
+
+.form-container form {
+    padding-top: 10px;
+}
+
+.form-container label {
+    font-size: .88rem;
+}
+
+.form-container input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    width: 280px;
+    height: 30px;
+    padding-left: 10px;
+    box-shadow: 0px 0px 1px 1px #840202;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-container select {
+    width: 280px;
+    height: 30px;
+    margin-top: 2px;
+    margin-left: 5px;
+    box-shadow: 0px 0px 1px 1px #840202;
+    border-radius: 5px;
+}
+
+.add-userBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-top: 10px;
+}
+
+.add-userBtn button {
+    margin: 10px;
+    width: 120px;
+    height: 35px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #270101fa, #840202); /* blue gradient */
+    color: white;
+}
